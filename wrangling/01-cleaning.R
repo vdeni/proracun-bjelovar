@@ -35,6 +35,24 @@ l_data <- map(l_data_files, read_csv,
               skip = 1,
               col_types = 'iccicccccccccccccc')
 
+# combine datasets
+# list dimensions of datasets in list
+l_dimensions <- map(l_data, dim)
+
+row_sum <- reduce(l_dimensions,
+                  function(x, y) {
+                      row_sum <- x[1] + y[1]
+
+                      return(row_sum)
+                  })
+
+dat <- reduce(l_data, bind_rows)
+
+if (dim(dat)[1] != row_sum) {
+    stop(paste('Dimensions of component files differ from the dimensions',
+               'of the combined file.'))
+}
+
 # formatting
 # turn amount into numeric
 dat %<>%
@@ -60,5 +78,10 @@ dat %<>%
               vars(date, update_date),
               dmy)
 
+# dump columns not available in app
+dat %<>%
+    select(.,
+           -matches('.*level.*'), -comment, -update_date)
+
 # output cleaned data
-# write_csv(dat, here('data', 'proracun-bjelovar-clean.csv'))
+write_csv(dat, here('data', 'clean', 'proracun_bjelovar_clean.csv'))

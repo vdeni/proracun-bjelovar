@@ -1,0 +1,12 @@
+variable,description
+id,'Oznaka’ u outputu koji daje pretraživanje u aplikaciji Grada.
+oib,"'OIB’ u otputu koji daje pretraživanje u aplikaciji Grada. Osobni identifikacijski broj, je li."
+name,'Ime i prezime/naziv tvrtke’ u outputu koji daje pretraživanje u aplikaciji Grada.
+postcode,'Poštanski broj’ u outputu koji daje pretraživanje u aplikaciji Grada.
+date,'Datum isplate’ u outputu koji daje pretraživanje u aplikaciji Grada.
+amount,'Iznos isplate’ u outputu koji daje pretraživanje u aplikaciji Grada.
+description,'Opis isplate’ u outputu koji daje pretraživanje u aplikaciji Grada.
+level_{1:4},Različite razine u stupcu ‘Ekonomska klasifikacija’ u outputu koji daje pretraživanje u aplikaciji Grada.
+function_level_{1:4},Različite razine u stupcu ‘Funkcionalna klasifikacija’ u outputu koji daje pretraživanje u aplikaciji Grada.
+comment,Različiti komentari vezani uz transakcije. Nije prikazano u outputu koji daje pretraživanje u aplikaciji Grada.
+update_date,"Pretpostavljam, datum posljednje izmjene unosa. Nije prikazano u outputu koji daje pretraživanje u aplikaciji Grada."
