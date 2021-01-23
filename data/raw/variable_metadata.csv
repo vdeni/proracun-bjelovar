@@ -3,6 +3,7 @@ id,'Oznaka’ u outputu koji daje pretraživanje u aplikaciji Grada.
 oib,"'OIB’ u otputu koji daje pretraživanje u aplikaciji Grada. Osobni identifikacijski broj, je li."
 name,'Ime i prezime/naziv tvrtke’ u outputu koji daje pretraživanje u aplikaciji Grada.
 postcode,'Poštanski broj’ u outputu koji daje pretraživanje u aplikaciji Grada.
+city,'Grad/općina’ u outputu koji daje pretraživanje u aplikaciji Grada.
 date,'Datum isplate’ u outputu koji daje pretraživanje u aplikaciji Grada.
 amount,'Iznos isplate’ u outputu koji daje pretraživanje u aplikaciji Grada.
 description,'Opis isplate’ u outputu koji daje pretraživanje u aplikaciji Grada.
