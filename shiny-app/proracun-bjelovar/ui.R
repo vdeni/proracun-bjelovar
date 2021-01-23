@@ -27,8 +27,7 @@ shinyUI(fluidPage(
         mainPanel(
             tabsetPanel(
                 tabPanel('Podaci',
-                         tableOutput('table')),
-                tabPanel('tmp', tableOutput('tmp'))
+                         tableOutput('table'))
             )
         )
     )

@@ -1,0 +1,5 @@
+variable,description
+filename,"Ime datoteke sa sirovim podacima preuzetima sa stranica Grada Bjelovara. Svaka datoteka ima vremensku oznaku datuma, sata i minute preuzimanja (UTC+01). Svaka datoteka je u CSV formatu."
+period_start,ISO datum početka vremenskog raspona na koji se podaci u datoteci odnose.
+period_end,ISO datum kraja vremenskog raspona na koji se podaci u datoteci odnose.
+collection_method,Način prikupljanja podataka.

@@ -1,5 +1,7 @@
 import subprocess
 
+from datetime import datetime
+
 import requests as req
 
 from api_info import api_key
@@ -10,11 +12,15 @@ api_url = 'https://transparentnost.bjelovar.hr/api'
 results = []
 
 # call API to get data for each month
-for year in [2018, 2019]:
+for year in [2020]:
+    print(f'====>>>> Godina: {year}')
+
     for month in range(1, 13):
-        rez = req.post(url = api_url,
-                       headers = {'api_key': api_key},
-                       json = {
+        print(f'=====>>>>> Mjesec: {month}')
+
+        rez = req.post(url=api_url,
+                       headers={'api_key': api_key},
+                       json={
                            'method': 'filter',
                            'output': 'csv',
                            'filter': [
@@ -30,10 +36,12 @@ for year in [2018, 2019]:
         results.append(rez.text)
 
 # write data to file
-with open('proracun.csv', 'w+') as ofile:
+filename = f'proracun_{datetime.utcnow().strftime("%Y-%m-%d_%H-%M")}.csv'
+
+with open(filename, 'w+') as ofile:
     ofile.write(''.join(results))
 
 # remove repeating headers
 subprocess.run(['sed', '-i', '-e',
                 "2,${/id,oib,name/d}",
-                'proracun.csv'])
+                filename])
