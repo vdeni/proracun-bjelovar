@@ -11,7 +11,7 @@ api_url = 'https://transparentnost.bjelovar.hr/api'
 # init empty list for results
 results = []
 
-# call API to get data for each month
+# call API to get data for each month. year range has to be entered manually!
 for year in [2020]:
     print(f'====>>>> Godina: {year}')
 
