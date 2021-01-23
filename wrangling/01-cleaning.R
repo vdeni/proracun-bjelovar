@@ -7,28 +7,33 @@ library(lubridate)
 conflict_prefer('here', 'here')
 conflict_prefer('filter', 'dplyr')
 
-# load data
-dat <- read_csv(here('data', 'proracun.csv'),
-                col_names = c("id",
-                              "oib",
-                              "name",
-                              "postcode",
-                              "city",
-                              "date",
-                              "amount",
-                              "description",
-                              "level_1",
-                              "level_2",
-                              "level_3",
-                              "level_4",
-                              "function_level_1",
-                              "function_level_2",
-                              "function_level_3",
-                              "function_level_4",
-                              "comment",
-                              "update_date"),
-                skip = 1,
-                col_types = 'iccicccccccccccccc')
+# get datafile names
+l_data_files <- list.files(here('data', 'raw'),
+                           pattern = 'proracun_.*\\.csv',
+                           full.names = T)
+
+# load data to list of tibbles
+l_data <- map(l_data_files, read_csv,
+              col_names = c("id",
+                            "oib",
+                            "name",
+                            "postcode",
+                            "city",
+                            "date",
+                            "amount",
+                            "description",
+                            "level_1",
+                            "level_2",
+                            "level_3",
+                            "level_4",
+                            "function_level_1",
+                            "function_level_2",
+                            "function_level_3",
+                            "function_level_4",
+                            "comment",
+                            "update_date"),
+              skip = 1,
+              col_types = 'iccicccccccccccccc')
 
 # formatting
 # turn amount into numeric
