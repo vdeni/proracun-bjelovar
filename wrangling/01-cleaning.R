@@ -72,7 +72,7 @@ dat %<>%
               vars(amount),
               as.numeric)
 
-# parse date strings to dates
+# parse strings to dates
 dat %<>%
     mutate_at(.,
               vars(date, update_date),
