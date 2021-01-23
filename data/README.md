@@ -1,8 +1,8 @@
 # Folderi
 
 - `raw/`: folder sa sirovim podacima, onakvima kakvi su dostavljeni putem API-ja
-    Grada
-- `clean/`: pročišćeni i objedinjeni podaci, za korištenje u web aplikaciji
+    Grada.
+- `clean/`: pročišćeni i objedinjeni podaci, za korištenje u web aplikaciji.
 
 # Datoteke
 
