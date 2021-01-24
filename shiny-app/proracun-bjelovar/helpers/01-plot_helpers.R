@@ -52,6 +52,7 @@
                          color = 'black', size = 1.5) +
                 labs(x = 'Godina', y = 'Isplate u milijunima kuna') +
                 scale_fill_viridis_d() +
+                scale_y_continuous(breaks = seq(0, 500, by = 50)) +
                 guides(fill = F) +
                 theme(panel.grid.major.x = element_blank())
     })

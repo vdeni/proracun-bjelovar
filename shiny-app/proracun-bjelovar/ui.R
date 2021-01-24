@@ -38,44 +38,48 @@ dashboardPage(
                     tags$p('Na prikazu ispod možete vidjeti ukupne isplate
                            iz proračuna Grada Bjelovara za određeni vremenski
                            period.'),
-                    column(3),
+                    column(3,
+                           box(title = 'Postavke',
+                               tags$p('U polja ispod možete unijeti prvu i
+                                      posljednju godinu vremenskog raspona za
+                                      koji želite dobiti prikaz isplata iz
+                                      proračuna:',
+                                      style = 'padding-bottom: 10px'),
+                               tags$span(textInput('date_start',
+                                                   label = 'Početak',
+                                                   placeholder = '2018',
+                                                   value = '2018',
+                                                   width = '60px'),
+                                         style = 'display: inline-block;
+                                                  padding-right: 10px'),
+                               tags$span(textInput('date_end',
+                                                   label = 'Kraj',
+                                                   placeholder = '2020',
+                                                   value = '2020',
+                                                   width = '60px'),
+                                         style = 'display: inline-block'),
+                               tags$div(actionButton('total_update',
+                                                     'Ažuriraj'),
+                                        style = 'padding-above: 10px'),
+                               width = NULL),
+                           box(title = 'Isplate iz proračuna u odabranom
+                                       razdoblju',
+                               tags$div(DT::dataTableOutput('t_total'),
+                                        style = 'height: 595px;'),
+                               width = NULL)),
                     column(9,
-                    fluidRow(
-                        box(title = 'Postavke',
-                            tags$p('U polja ispod možete unijeti prvu i
-                                   posljednju godinu vremenskog raspona za koji
-                                   želite dobiti prikaz isplata iz proračuna:',
-                                   style = 'padding-bottom: 10px'),
-                            tags$span(textInput('date_start',
-                                                label = 'Početak',
-                                                placeholder = '2018',
-                                                value = '2018',
-                                                width = '60px'),
-                                      style = 'display: inline-block;
-                                               padding-right: 10px'),
-                            tags$span(textInput('date_end',
-                                                label = 'Kraj',
-                                                placeholder = '2020',
-                                                value = '2020',
-                                                width = '60px'),
-                                      style = 'display: inline-block'),
-                            tags$div(actionButton('total_update', 'Ažuriraj'),
-                                     style = 'padding-above: 10px'),
-                            width = 3),
-                        box(title = 'Prikaz ukupnih isplata iz proračuna za
-                                    odabrano razdoblje, podijeljeno po godinama
-                                    i mjesecima',
-                            plotOutput('p_total_line'),
-                            width = 9)),
-                    fluidRow(
-                             column(width = 3),
-                        box(title = 'Prikaz ukupnih isplata iz proračuna za
-                                    odabrano razdoblje, podijeljeno po
-                                    godinama',
-                            plotOutput('p_total_bar'),
-                            width = 9)))
-                    )
+                              box(title = 'Prikaz ukupnih isplata iz proračuna
+                                          za odabrano razdoblje, podijeljeno po
+                                          godinama i mjesecima',
+                                  plotOutput('p_total_line', height = '400px'),
+                                  width = NULL),
+                              box(title = 'Prikaz ukupnih isplata iz proračuna
+                                          za odabrano razdoblje, podijeljeno po
+                                          godinama',
+                                  plotOutput('p_total_bar', height = '400px'),
+                                  width = NULL)
+                          )
+                   )
+                )
+            ), skin = 'black'
         )
-    ),
-    skin = 'black'
-)

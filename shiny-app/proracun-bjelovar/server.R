@@ -10,10 +10,15 @@ conflict_prefer('filter', 'dplyr')
 
 source(here('shiny-app', 'proracun-bjelovar',
             'resources', '01-variables.R'))
+
 source(here('shiny-app', 'proracun-bjelovar',
         'resources', '02-plot_settings.R'))
+
 source(here('shiny-app', 'proracun-bjelovar',
             'helpers', '01-plot_helpers.R'))
+
+source(here('shiny-app', 'proracun-bjelovar',
+            'helpers', '02-table_helpers.R'))
 
 # server setup
 shinyServer(function(input, output) {
@@ -28,4 +33,6 @@ shinyServer(function(input, output) {
     output$p_total_line <- .plotLineChartTotal(d_p_total)
 
     output$p_total_bar <- .plotBarChartTotal(d_p_total)
+
+    output$t_total <- .makeTableTotal(d_p_total)
 })
