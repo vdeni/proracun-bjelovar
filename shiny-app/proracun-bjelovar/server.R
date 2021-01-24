@@ -4,29 +4,28 @@ library(tidyverse)
 library(conflicted)
 library(magrittr)
 library(lubridate)
+library(viridis)
 
 conflict_prefer('filter', 'dplyr')
 
-# plot options
-theme_set(theme_minimal())
+source(here('shiny-app', 'proracun-bjelovar',
+            'resources', '01-variables.R'))
+source(here('shiny-app', 'proracun-bjelovar',
+        'resources', '02-plot_settings.R'))
+source(here('shiny-app', 'proracun-bjelovar',
+            'helpers', '01-plot_helpers.R'))
 
 # server setup
 shinyServer(function(input, output) {
     # load data
     dat <- read_csv(here('data', 'clean', 'proracun_bjelovar_clean.csv'))
 
-    # Ukupne isplate
+    ##### Ukupne isplate
     # izvuci relevantan podskup
-    dat_subset <- eventReactive(input$total_update,
-                                {
-                                    filter(dat, year(date) >= input$date_start &
-                                       year(date) <= input$date_end)
-                                },
-                                ignoreNULL = F)
+    d_p_total <- .makeDataPlotTotal(input, dat)
 
-    # graf
-    output$p_total <- renderPlot({
-        ggplot(dat_subset(), aes(x = amount)) +
-            geom_histogram()
-    })
+    # grafovi
+    output$p_total_line <- .plotLineChartTotal(d_p_total)
+
+    output$p_total_bar <- .plotBarChartTotal(d_p_total)
 })
