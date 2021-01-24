@@ -10,10 +10,7 @@ source(here('shiny-app', 'proracun-bjelovar',
 
 # define UI
 dashboardPage(
-    dashboardHeader(title = tags$span('Proračun Grada Bjelovara',
-                                      style =
-                                          'font-family: "Latin Modern Roman";
-                                          font-size: 16pt'),
+    dashboardHeader(title = 'Proračun Grada Bjelovara',
                     titleWidth = title_width
                     ),
     dashboardSidebar(
@@ -26,6 +23,8 @@ dashboardPage(
         )
     ),
     dashboardBody(
+        tags$head(tags$link(rel = 'stylesheet', type = 'text/css',
+                            href = 'custom.css')),
         tabItems(
             ##### Informacije
             tabItem(tabName = 'info',
@@ -39,13 +38,9 @@ dashboardPage(
                     tags$p('Na prikazu ispod možete vidjeti ukupne isplate
                            iz proračuna Grada Bjelovara za određeni vremenski
                            period.'),
+                    column(3),
+                    column(9,
                     fluidRow(
-                        tags$style('.box-title {
-                                       font-weight: bold;
-                                   }
-                                   .form-control.shiny-bound-input {
-                                       text-align: center;
-                                   }'),
                         box(title = 'Postavke',
                             tags$p('U polja ispod možete unijeti prvu i
                                    posljednju godinu vremenskog raspona za koji
@@ -78,7 +73,7 @@ dashboardPage(
                                     odabrano razdoblje, podijeljeno po
                                     godinama',
                             plotOutput('p_total_bar'),
-                            width = 9))
+                            width = 9)))
                     )
         )
     ),
