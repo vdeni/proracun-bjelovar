@@ -6,8 +6,8 @@
             mutate_at(.,
                       vars(total), ~ . * 1000) %>%
             mutate_at(.,
-                      vars(.month),
-                      ~ v_months_full[.month]) %>%
+                      vars(month),
+                      ~ v_months_full[month]) %>%
             set_colnames(.,
                          c('Godina', 'Mjesec', 'Isplate u kunama')) %>%
             DT::datatable(.,

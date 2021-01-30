@@ -107,7 +107,7 @@ dashboardPage(
                                          style = 'display: inline-block'),
                                 tags$p('U polje ispod možete unijeti',
                                        tags$strong('ime ili OIB'),
-                                       'primatelja:'),
+                                       'kako biste pretraživali primatelje:'),
                                 uiOutput('entity_picker'),
                                 tags$div(actionButton('entity_update',
                                                       'Ažuriraj'),
@@ -115,7 +115,10 @@ dashboardPage(
                            width = NULL)
                     ),
                     column(9,
-                           box(title = 'Tmp',
+                           box(title = 'Prikaz ukupnih isplata odabranim
+                                        primateljima za odabrano vremensko
+                                        razdoblje',
+                               plotOutput('p_entity_bar', height = '700px'),
                                width = NULL),
                     )
             )

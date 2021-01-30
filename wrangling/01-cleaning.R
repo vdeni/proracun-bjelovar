@@ -88,5 +88,11 @@ dat %<>%
     mutate(.,
            name_oib = paste0(name, ' (', oib, ')'))
 
+# separate date column into year and month
+dat %<>%
+    mutate(.,
+           year = year(date),
+           month = month(date, label = T))
+
 # output cleaned data
 write_csv(dat, here('data', 'clean', 'proracun_bjelovar_clean.csv'))

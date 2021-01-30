@@ -21,15 +21,12 @@ source(here('shiny-app', 'proracun-bjelovar',
 source(here('shiny-app', 'proracun-bjelovar',
             'helpers', '02-table_helpers.R'))
 
-source(here('shiny-app', 'proracun-bjelovar',
-            'helpers', '03-wrangling_helpers.R'))
-
 # server setup
 shinyServer(function(input, output) {
     # load data
     dat <- read_csv(here('data', 'clean', 'proracun_bjelovar_clean.csv'))
 
-    dat_reactive <- reactive(dat)
+    dat_reactive <- reactiveVal(dat)
 
     ##### Ukupne isplate
     # izvuci relevantan podskup
@@ -50,4 +47,9 @@ shinyServer(function(input, output) {
                     multiple = T,
                     choices = unique(dat_reactive()$name_oib))
     })
+
+    # prepare data
+    d_p_entity <- .makeDataPerEntity(input, dat)
+
+    output$p_entity_bar <- .plotBarChartEntity(d_p_entity)
 })
