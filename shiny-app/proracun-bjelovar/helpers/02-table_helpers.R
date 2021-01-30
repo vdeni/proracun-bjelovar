@@ -12,12 +12,43 @@
                          c('Godina', 'Mjesec', 'Isplate u kunama')) %>%
             DT::datatable(.,
                           options = list(paging = F,
-                                  searching = F,
-                                  scrollX = F,
-                                  scrollY = '555px',
-                                  scrollCollapse = T,
-                                  info = F),
+                                         searching = F,
+                                         scrollX = F,
+                                         scrollY = '555px',
+                                         scrollCollapse = T,
+                                         info = F),
                           rownames = F)
             }
     )
+}
+
+##### Isplate primateljima
+# preparation functions
+.makeDataPerEntityTable <- function(.input, .data) {
+    eventReactive(.input$entity_update,
+                  {
+                     filter(.data, year >= .input$date_start_entity &
+                            year <= .input$date_end_entity &
+                            name_oib %in% .input$choose_entity) %>%
+                     select(.,
+                            'Naziv i OIB' = name_oib,
+                            'Datum' = date,
+                            'Iznos' = amount,
+                            'Opis plaćanja' = description)
+                  })
+}
+
+# table functions
+.makeTablePerEntity <- function(.data) {
+    DT::renderDataTable({
+        .data() %>%
+            DT::datatable(.,
+                          options = list(paging = F,
+                                         searching = T,
+                                         scrollX = F,
+                                         scrollY = '600px',
+                                         scrollCollapse = T,
+                                         info = F),
+                          rownames = F)
+    })
 }

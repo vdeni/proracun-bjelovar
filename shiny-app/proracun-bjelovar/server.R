@@ -29,7 +29,7 @@ shinyServer(function(input, output) {
     dat_reactive <- reactiveVal(dat)
 
     ##### Ukupne isplate
-    # izvuci relevantan podskup
+    # prepare data
     d_p_total <- .makeDataPlotTotal(input, dat)
 
     # grafovi
@@ -40,7 +40,6 @@ shinyServer(function(input, output) {
     output$t_total <- .makeTableTotal(d_p_total)
 
     ##### Isplate primateljima
-    # d_per_entity <- .makeDataPerEntity(input, dat)
     output$entity_picker <- renderUI({
         selectInput('choose_entity',
                     label = NULL,
@@ -51,5 +50,11 @@ shinyServer(function(input, output) {
     # prepare data
     d_p_entity <- .makeDataPerEntity(input, dat)
 
+    d_t_entity <- .makeDataPerEntityTable(input, dat)
+
+    # plot
     output$p_entity_bar <- .plotBarChartEntity(d_p_entity)
+
+    # make table
+    output$t_entity <- .makeTablePerEntity(d_t_entity)
 })

@@ -85,42 +85,48 @@ dashboardPage(
             tabItem(tabName = 'by_entity',
                     tags$h1('Isplate iz proračuna pojedinim primateljima'),
                     tags$p('placeholder'),
-                    column(3,
-                           box(title = 'Postavke',
-                               tags$p('U polja ispod možete unijeti prvu i
-                                      posljednju godinu vremenskog raspona za
-                                      koji želite dobiti prikaz isplata iz
-                                      proračuna:',
-                                      style = 'padding-bottom: 10px'),
-                               tags$span(textInput('date_start_entity',
-                                                   label = 'Početak',
-                                                   placeholder = '2018',
-                                                   value = '2018',
-                                                   width = '60px'),
-                                         style = 'display: inline-block;
-                                                  padding-right: 10px'),
-                               tags$span(textInput('date_end_entity',
-                                                   label = 'Kraj',
-                                                   placeholder = '2020',
-                                                   value = '2020',
-                                                   width = '60px'),
-                                         style = 'display: inline-block'),
-                                tags$p('U polje ispod možete unijeti',
-                                       tags$strong('ime ili OIB'),
-                                       'kako biste pretraživali primatelje:'),
-                                uiOutput('entity_picker'),
-                                tags$div(actionButton('entity_update',
-                                                      'Ažuriraj'),
-                                         style = 'padding-above: 10px'),
-                           width = NULL)
-                    ),
-                    column(9,
-                           box(title = 'Prikaz ukupnih isplata odabranim
+                    fluidRow(
+                        column(3,
+                            box(title = 'Postavke',
+                                tags$p('U polja ispod možete unijeti prvu i
+                                       posljednju godinu vremenskog raspona za
+                                       koji želite dobiti prikaz isplata iz
+                                       proračuna:',
+                                       style = 'padding-bottom: 10px'),
+                                tags$span(textInput('date_start_entity',
+                                                    label = 'Početak',
+                                                    placeholder = '2018',
+                                                    value = '2018',
+                                                    width = '60px'),
+                                            style = 'display: inline-block;
+                                                    padding-right: 10px'),
+                                tags$span(textInput('date_end_entity',
+                                                    label = 'Kraj',
+                                                    placeholder = '2020',
+                                                    value = '2020',
+                                                    width = '60px'),
+                                            style = 'display: inline-block'),
+                                    tags$p('U polje ispod možete unijeti',
+                                        tags$strong('ime ili OIB'),
+                                        'kako biste pretraživali primatelje:'),
+                                    uiOutput('entity_picker'),
+                                    tags$div(actionButton('entity_update',
+                                                          'Ažuriraj'),
+                                            style = 'padding-above: 10px'),
+                            width = NULL)
+                        ),
+                        column(9,
+                            box(title = 'Prikaz ukupnih isplata odabranim
                                         primateljima za odabrano vremensko
                                         razdoblje',
-                               plotOutput('p_entity_bar', height = '700px'),
-                               width = NULL),
-                    )
+                                plotOutput('p_entity_bar', height = '700px'),
+                                width = NULL),
+                        )
+                    ),
+                    fluidRow(
+                        box(width = 12,
+                            DT::dataTableOutput('t_entity'))
+                        )
             )
         )
     ), skin = 'black'
