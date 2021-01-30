@@ -124,7 +124,9 @@ dashboardPage(
                         )
                     ),
                     fluidRow(
-                        box(width = 12,
+                        box(title = 'Pojedinačne isplate odabranim
+                                    primateljima',
+                            width = 12,
                             DT::dataTableOutput('t_entity'))
                         )
             )

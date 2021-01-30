@@ -44,11 +44,12 @@
         .data() %>%
             DT::datatable(.,
                           options = list(paging = F,
-                                         searching = T,
-                                         scrollX = F,
-                                         scrollY = '600px',
-                                         scrollCollapse = T,
-                                         info = F),
+                                        searching = T,
+                                        scrollX = F,
+                                        scrollY = '500px',
+                                        scrollCollapse = F,
+                                        info = F,
+                                        language = list(search = 'Traži: ')),
                           rownames = F)
     })
 }
