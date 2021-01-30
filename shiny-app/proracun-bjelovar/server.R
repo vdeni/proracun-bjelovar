@@ -29,6 +29,8 @@ shinyServer(function(input, output) {
     # load data
     dat <- read_csv(here('data', 'clean', 'proracun_bjelovar_clean.csv'))
 
+    dat_reactive <- reactive(dat)
+
     ##### Ukupne isplate
     # izvuci relevantan podskup
     d_p_total <- .makeDataPlotTotal(input, dat)
@@ -42,12 +44,10 @@ shinyServer(function(input, output) {
 
     ##### Isplate primateljima
     # d_per_entity <- .makeDataPerEntity(input, dat)
-    d_per_entity <- reactive(dat)
-
     output$entity_picker <- renderUI({
         selectInput('choose_entity',
-                    label = 'Odaberite primatelje za koje želite dobiti prikaz',
+                    label = NULL,
                     multiple = T,
-                    choices = unique(d_per_entity()$name))
+                    choices = unique(dat_reactive()$name_oib))
     })
 })

@@ -83,5 +83,10 @@ dat %<>%
     select(.,
            -matches('.*level.*'), -comment, -update_date)
 
+# add col with name+oib (for selector)
+dat %<>%
+    mutate(.,
+           name_oib = paste0(name, ' (', oib, ')'))
+
 # output cleaned data
 write_csv(dat, here('data', 'clean', 'proracun_bjelovar_clean.csv'))
