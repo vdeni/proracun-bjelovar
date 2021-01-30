@@ -1,10 +1,10 @@
 ##### Ukupne isplate
 # preparation functions
-.makeDataPlotTotal <- function(.input, .data = dat) {
+.makeDataPlotTotal <- function(.input, .data) {
     eventReactive(.input$total_update,
                   {
-                     filter(.data, year(date) >= .input$date_start &
-                         year(date) <= .input$date_end) %>%
+                     filter(.data, year(date) >= .input$date_start_total &
+                            year(date) <= .input$date_end_total) %>%
                      mutate(.,
                             .year = year(date),
                             .month = month(date, label = T)) %>%
