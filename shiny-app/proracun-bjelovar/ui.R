@@ -84,9 +84,11 @@ dashboardPage(
             ##### Ukupne isplate
             tabItem(tabName = 'total',
                     tags$h1('Ukupne isplate iz proračuna'),
-                    tags$p('Na prikazu ispod možete vidjeti ukupne isplate
-                           iz proračuna Grada Bjelovara za određeni vremenski
-                           period.'),
+                    tags$p('Na ovoj stranici možete vidjeti grafički prikaz
+                           ukupnih isplata iz proračuna, podijeljeno po
+                           godinama, i godinama i mjesecima. Ukupne isplate
+                           podijeljene po godinama i mjesecima dostupne su i
+                           u tabličnom obliku.'),
                     column(3,
                            box(title = 'Postavke',
                                tags$p('U polja ispod možete unijeti prvu i
@@ -98,14 +100,14 @@ dashboardPage(
                                                    label = 'Početak',
                                                    placeholder = '2018',
                                                    value = '2018',
-                                                   width = '60px'),
+                                                   width = '70px'),
                                          style = 'display: inline-block;
-                                                  padding-right: 10px'),
+                                                  padding-right: 20px'),
                                tags$span(textInput('date_end_total',
                                                    label = 'Kraj',
                                                    placeholder = '2020',
                                                    value = '2020',
-                                                   width = '60px'),
+                                                   width = '70px'),
                                          style = 'display: inline-block'),
                                tags$div(actionButton('total_update',
                                                      'Ažuriraj'),
@@ -114,7 +116,7 @@ dashboardPage(
                            box(title = 'Isplate iz proračuna u odabranom
                                        razdoblju',
                                tags$div(DT::dataTableOutput('t_total'),
-                                        style = 'height: 595px;'),
+                                        style = 'height: 587px;'),
                                width = NULL)
                     ),
                     column(9,
@@ -145,14 +147,14 @@ dashboardPage(
                                                     label = 'Početak',
                                                     placeholder = '2018',
                                                     value = '2018',
-                                                    width = '60px'),
+                                                    width = '70px'),
                                             style = 'display: inline-block;
                                                     padding-right: 10px'),
                                 tags$span(textInput('date_end_entity',
                                                     label = 'Kraj',
                                                     placeholder = '2020',
                                                     value = '2020',
-                                                    width = '60px'),
+                                                    width = '70px'),
                                             style = 'display: inline-block'),
                                     tags$p('U polje ispod možete unijeti',
                                         tags$strong('ime ili OIB'),

@@ -14,7 +14,7 @@
                           options = list(paging = F,
                                          searching = F,
                                          scrollX = F,
-                                         scrollY = '555px',
+                                         scrollY = '528px',
                                          scrollCollapse = T,
                                          info = F),
                           rownames = F)

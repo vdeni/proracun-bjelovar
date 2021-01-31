@@ -13,8 +13,13 @@ h1, h2 {
     font-weight: bold;
 }
 
+li {
+    margin-left: var(--li_margin);
+}
+
 .box-title {
     font-weight: bold;
+    font-family: "DejaVu Sans";
 }
 
 .form-control.shiny-bound-input {
@@ -26,11 +31,18 @@ h1, h2 {
     font-size: 16pt;
 }
 
-#shiny-tab-info {
-    margin-right: 25%;
+.content {
     margin-left: var(--tab_margin);
 }
 
-li {
-    margin-left: var(--li_margin);
+.col-sm-3 {
+    padding-left: 0%;
+}
+
+.control-label {
+    font-weight: normal;
+}
+
+#shiny-tab-info {
+    margin-right: 25%;
 }
