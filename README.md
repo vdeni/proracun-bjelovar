@@ -4,9 +4,9 @@
 
 Ovaj projekt nastao je tijekom Dana otvorenih podataka 2020. Cilj je bio
 napraviti nekakvu web aplikaciju koja će nadopuniti funkcionalnost koju nudi
-(aplikacija)[https://transparentnost.bjelovar.hr/] koju je na raspolaganje
+[aplikacija](https://transparentnost.bjelovar.hr/) koju je na raspolaganje
 stavio Grad Bjelovar. Web aplikacija se trenutno može naći
-(ovdje)[https://dvlasicek.shinyapps.io/proracun-bjelovar/].
+[ovdje](https://dvlasicek.shinyapps.io/proracun-bjelovar/).
 
 Za potrebe izrade ove aplikacije nastala je i objedinjena baza isplata iz
 proračuna od 2018. do 20202. Baza (u obliku CSV datoteke), prikupljena
