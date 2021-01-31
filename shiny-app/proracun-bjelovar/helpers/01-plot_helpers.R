@@ -3,8 +3,8 @@
 .makeDataPlotTotal <- function(.input, .data) {
     eventReactive(.input$total_update,
                   {
-                     filter(.data, year >= .input$date_start_total &
-                            year <= .input$date_end_total) %>%
+                     filter(.data, year >= str_trim(.input$date_start_total) &
+                            year <= str_trim(.input$date_end_total)) %>%
                      group_by(.,
                               year, month) %>%
                      summarise(.,
@@ -60,8 +60,8 @@
 .makeDataPerEntity <- function(.input, .data) {
     eventReactive(.input$entity_update,
                   {
-                     filter(.data, year >= .input$date_start_entity &
-                            year <= .input$date_end_entity &
+                     filter(.data, year >= str_trim(.input$date_start_entity) &
+                            year <= str_trim(.input$date_end_entity) &
                             name_oib %in% .input$choose_entity) %>%
                      group_by(.,
                               name_oib, year) %>%

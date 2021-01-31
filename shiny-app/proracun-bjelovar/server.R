@@ -9,22 +9,18 @@ library(DT)
 
 conflict_prefer('filter', 'dplyr')
 
-source(here('shiny-app', 'proracun-bjelovar',
-            'resources', '01-variables.R'))
+source(here('resources', '01-variables.R'))
 
-source(here('shiny-app', 'proracun-bjelovar',
-        'resources', '02-plot_settings.R'))
+source(here('resources', '02-plot_settings.R'))
 
-source(here('shiny-app', 'proracun-bjelovar',
-            'helpers', '01-plot_helpers.R'))
+source(here('helpers', '01-plot_helpers.R'))
 
-source(here('shiny-app', 'proracun-bjelovar',
-            'helpers', '02-table_helpers.R'))
+source(here('helpers', '02-table_helpers.R'))
 
 # server setup
 shinyServer(function(input, output) {
     # load data
-    dat <- read_csv(here('data', 'clean', 'proracun_bjelovar_clean.csv'))
+    dat <- read_csv(here('resources', 'proracun_bjelovar_clean.csv'))
 
     dat_reactive <- reactiveVal(dat)
 

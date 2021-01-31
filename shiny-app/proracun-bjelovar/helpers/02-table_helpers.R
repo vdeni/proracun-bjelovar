@@ -27,8 +27,8 @@
 .makeDataPerEntityTable <- function(.input, .data) {
     eventReactive(.input$entity_update,
                   {
-                     filter(.data, year >= .input$date_start_entity &
-                            year <= .input$date_end_entity &
+                     filter(.data, year >= str_trim(.input$date_start_entity) &
+                            year <= str_trim(.input$date_end_entity) &
                             name_oib %in% .input$choose_entity) %>%
                      select(.,
                             'Naziv i OIB' = name_oib,

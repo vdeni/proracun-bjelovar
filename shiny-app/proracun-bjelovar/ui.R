@@ -5,8 +5,7 @@ library(here)
 
 conflict_prefer('box', 'shinydashboard')
 
-source(here('shiny-app', 'proracun-bjelovar',
-            'resources', '01-variables.R'))
+source(here('resources', '01-variables.R'))
 
 # define UI
 dashboardPage(
