@@ -44,12 +44,30 @@
         .data() %>%
             DT::datatable(.,
                           options = list(paging = F,
-                                        searching = T,
-                                        scrollX = F,
-                                        scrollY = '500px',
-                                        scrollCollapse = F,
-                                        info = F,
-                                        language = list(search = 'Traži: ')),
+                                         searching = T,
+                                         scrollX = F,
+                                         scrollY = '500px',
+                                         scrollCollapse = F,
+                                         info = F,
+                                         language = list(search = 'Traži: ')),
                           rownames = F)
     })
+}
+
+# prepare for export
+.makeTablePerEntityExport <- function(.data) {
+    .data() %>%
+        set_colnames(.,
+                     c('name_oib', 'datum', 'iznos', 'opis')) %>%
+        mutate(.,
+               oib = str_extract(name_oib, '(?<=\\()\\d+(?=\\))')) %>%
+        mutate_at(.,
+                  vars(name_oib), str_replace, '\\(\\d+\\)', '') %>%
+        separate(.,
+                 datum, into = c('godina', 'mjesec', 'dan'),
+                 sep = '-') %>%
+        rename(.,
+               'naziv' = 'name_oib') %>%
+        select(.,
+               naziv, oib, everything())
 }

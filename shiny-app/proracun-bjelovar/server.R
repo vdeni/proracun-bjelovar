@@ -57,4 +57,15 @@ shinyServer(function(input, output) {
 
     # make table
     output$t_entity <- .makeTablePerEntity(d_t_entity)
+
+    # table download
+    output$download_csv <- downloadHandler(content = function(file) {
+                                                d_t_entity %>%
+                                                .makeTablePerEntityExport(.) %>%
+                                                write.csv(.,
+                                                        file,
+                                                        row.names = F)
+                                           },
+                                           filename = 'isplate_primateljima.csv'
+                                           )
 })
