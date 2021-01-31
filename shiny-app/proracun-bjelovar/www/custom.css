@@ -17,9 +17,23 @@ li {
     margin-left: var(--li_margin);
 }
 
-.box-title {
-    font-weight: bold;
+div.col-sm-3 {
+    padding-left: 0%;
+}
+
+div.row {
+    padding-left: 0%;
+    margin-left: 0%;
+}
+
+div.row div.col-sm-12 {
+    padding-left: 0%;
+}
+
+.box-header .box-title {
     font-family: "DejaVu Sans";
+    font-size: 12pt;
+    font-weight: bold;
 }
 
 .form-control.shiny-bound-input {
@@ -33,10 +47,6 @@ li {
 
 .content {
     margin-left: var(--tab_margin);
-}
-
-.col-sm-3 {
-    padding-left: 0%;
 }
 
 .control-label {

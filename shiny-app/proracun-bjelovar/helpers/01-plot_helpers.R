@@ -87,7 +87,7 @@
             labs(x = 'Godina', y = 'Isplate u tisućama kuna') +
             scale_fill_viridis_d() +
             guides(fill = guide_legend(title = 'Primatelj',
-                                       ncol = 2, direction = 'vertical')) +
+                                       ncol = 1, direction = 'vertical')) +
             theme(panel.grid.major.x = element_blank(),
                   legend.position = 'bottom')
     })

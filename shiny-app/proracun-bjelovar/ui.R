@@ -27,7 +27,7 @@ dashboardPage(
         tags$head(tags$link(rel = 'stylesheet', type = 'text/css',
                             href = 'custom.css')),
         tabItems(
-            ##### Informacije
+            ##### Opce informacije
             tabItem(tabName = 'info',
                     tags$h1('Opće informacije'),
                     tags$p('Ovaj projekt započet je u sklopu',
@@ -56,7 +56,9 @@ dashboardPage(
                            detaljniji od onih dostupnih kroz ovu aplikaciju.
                            To je zato što na prvu nisam znao što započeti s
                            dijelom podatka (primjerice, s ekonomskim i
-                           funkcionalnim klasifikacijama).'),
+                           funkcionalnim klasifikacijama). Osim toga, neki
+                           elementi web dizajna su ofrlje napravljeni jer nisam
+                           web dizajner. Ali prihvaćam savjete!'),
                     tags$p('Ako netko želi sudjelovati u radu na ovoj
                            aplikaciji, primjerice oko uvođenja novih
                            mogućnosti, može se mi se javiti na',
@@ -79,6 +81,7 @@ dashboardPage(
                            'što znači da ih možete slobodno koristiti za što
                            god.  Naravno, ako Vam je nešto bilo korisno, možete
                            mi zahvaliti, ali ne morate.'),
+                    tags$p('Denis Vlašiček', style = 'padding-top: 20px;'),
                     tags$h1('Informacije o softveru'),
                     verbatimTextOutput('software_info')),
             ##### Ukupne isplate
@@ -92,7 +95,7 @@ dashboardPage(
                     column(3,
                            box(title = 'Postavke',
                                tags$p('U polja ispod možete unijeti prvu i
-                                      posljednju godinu vremenskog raspona za
+                                      posljednju godinu vremenskog razdoblja za
                                       koji želite dobiti prikaz isplata iz
                                       proračuna:',
                                       style = 'padding-bottom: 10px'),
@@ -115,8 +118,7 @@ dashboardPage(
                                width = NULL),
                            box(title = 'Isplate iz proračuna u odabranom
                                        razdoblju',
-                               tags$div(DT::dataTableOutput('t_total'),
-                                        style = 'height: 587px;'),
+                               tags$div(DT::dataTableOutput('t_total')),
                                width = NULL)
                     ),
                     column(9,
@@ -132,9 +134,16 @@ dashboardPage(
                                width = NULL)
                     )
             ),
+            ##### Isplate po primateljima
             tabItem(tabName = 'by_entity',
                     tags$h1('Isplate iz proračuna pojedinim primateljima'),
-                    tags$p('placeholder'),
+                    tags$p('Ovdje možete zatražiti prikaz ukupnih isplata
+                           pojedinom primatelju ili skupini primatelja.
+                           Graf prikazuje ukupne isplate odabranim primateljima
+                           u zadanom vremenskom razdoblju. U tablici na dnu
+                           stranice nalazi se ispis pojedinih isplata tim
+                           primateljima zajedno s datumom isplate, iznosom
+                           i opisom plaćanja.'),
                     fluidRow(
                         column(3,
                             box(title = 'Postavke',
