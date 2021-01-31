@@ -1,5 +1,11 @@
+:root {
+    --tab_margin: 1%;
+    --li_margin: 3%;
+}
+
 body {
     font-family: "DejaVu Sans";
+    font-size: 12pt;
 }
 
 h1, h2 {
@@ -18,4 +24,13 @@ h1, h2 {
 .main-header .logo {
     font-family: "Latin Modern Roman";
     font-size: 16pt;
+}
+
+#shiny-tab-info {
+    margin-right: 25%;
+    margin-left: var(--tab_margin);
+}
+
+li {
+    margin-left: var(--li_margin);
 }

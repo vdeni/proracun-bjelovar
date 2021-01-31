@@ -30,9 +30,57 @@ dashboardPage(
             ##### Informacije
             tabItem(tabName = 'info',
                     tags$h1('Opće informacije'),
-                    tags$p('placeholder'),
+                    tags$p('Ovaj projekt započet je u sklopu',
+                           tags$a('Dana otvorenih podataka 2020.',
+                                  href = 'https://odd.codeforcroatia.org/'),
+                           'Projekt je, očito, motiviran otvaranjem isplata
+                           iz proračuna Grada Bjelovara putem',
+                           tags$a('web aplikacije',
+                                  href = 'https://transparentnost.bjelovar.hr/'),
+                           'koja svima zainteresiranima omogućava pretraživanje
+                           isplata prema nekim kriterijima.'),
+                    tags$p('Budući da su podaci o isplatama iz proračuna već
+                           dostupni, opravdano je pitati koja je poanta ove
+                           web aplikacije. Odgovor bi mogao biti da nadograđuje
+                           funkcionalnost koju nudi aplikacija Grada:',
+                           tags$li('omogućava jednostvnu izradu neki osnovnih
+                                   vizualizacija isplata iz proračuna'),
+                           tags$li('rezultati pretraživanja nisu ograničeni
+                                   na 1000 unosa'),
+                           tags$li('nudi uvid u ukupne isplate u zadanim
+                                   vremenskim razdobljima, ili odabranim
+                                   primateljima.')),
+                    tags$p('Naravno, vjerojatno ima i neke mane. Ono što mi
+                           prvo pada na pamet jest to da su podaci koji
+                           su dostupni na stranicama Grada nešto su
+                           detaljniji od onih dostupnih kroz ovu aplikaciju.
+                           To je zato što na prvu nisam znao što započeti s
+                           dijelom podatka (primjerice, s ekonomskim i
+                           funkcionalnim klasifikacijama).'),
+                    tags$p('Ako netko želi sudjelovati u radu na ovoj
+                           aplikaciji, primjerice oko uvođenja novih
+                           mogućnosti, može se mi se javiti na',
+                           tags$a('Twitter',
+                                  href = 'https://twitter.com/dvlasicek'),
+                           'ili e-mail: dvlasice [at] ffzg [točka] hr.
+                           U protivnom ću sam dodavati stvari kako će mi
+                           padati na pamet.'),
+                    tags$h1('Kod i materijali'),
+                    tags$p('Svi materijali i kod za izradu ove aplikacije
+                           dostupni su na',
+                           tags$a('GitHubu.',
+                                  href = 'https://github.com/vdeni/proracun-bjelovar'),
+                           'Tamo možete pronaći i pročišćene i sirove podatke
+                           o isplatama iz proračuna preuzete putem API-ja
+                           Grada Bjelovara.'),
+                    tags$p('Podaci i materijali licencirani su pod',
+                           tags$a('CC0 licencom,',
+                                  href = 'https://creativecommons.org/publicdomain/zero/1.0/'),
+                           'što znači da ih možete slobodno koristiti za što
+                           god.  Naravno, ako Vam je nešto bilo korisno, možete
+                           mi zahvaliti, ali ne morate.'),
                     tags$h1('Informacije o softveru'),
-                    tags$p('Placeholder')),
+                    verbatimTextOutput('software_info')),
             ##### Ukupne isplate
             tabItem(tabName = 'total',
                     tags$h1('Ukupne isplate iz proračuna'),

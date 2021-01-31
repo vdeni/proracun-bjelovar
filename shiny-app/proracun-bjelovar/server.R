@@ -28,6 +28,9 @@ shinyServer(function(input, output) {
 
     dat_reactive <- reactiveVal(dat)
 
+    ##### Opce informacije
+    output$software_info <- renderPrint({sessionInfo()})
+
     ##### Ukupne isplate
     # prepare data
     d_p_total <- .makeDataPlotTotal(input, dat)
