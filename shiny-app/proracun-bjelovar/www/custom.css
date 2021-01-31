@@ -1,0 +1,21 @@
+body {
+    font-family: "DejaVu Sans";
+}
+
+h1, h2 {
+    font-family: "DejaVu Sans";
+    font-weight: bold;
+}
+
+.box-title {
+    font-weight: bold;
+}
+
+.form-control.shiny-bound-input {
+    text-align: center;
+}
+
+.main-header .logo {
+    font-family: "Latin Modern Roman";
+    font-size: 16pt;
+}

@@ -127,9 +127,10 @@ dashboardPage(
                         box(title = 'Pojedinačne isplate odabranim
                                     primateljima',
                             width = 12,
-                            tags$p('Filtrirane podatke možete preuzeti u
-                                   CSV (comma separated values) formatu'),
-                            downloadButton('download_csv', 'Preuzmi CSV'),
+                            tags$p('Podatke za odabrane primatelje i vremensko
+                                   razdoblje možete preuzeti u
+                                   CSV (comma separated values) formatu:',
+                            downloadButton('download_csv', 'Preuzmi CSV')),
                             DT::dataTableOutput('t_entity'))
                         )
             )
