@@ -22,7 +22,7 @@ putem API-ja Grada, se može pronaći pod `data/raw`.
 
 ## Licenca
 
-Svi materijali pokriveni su CC0 licencom, dakle mogu se slobodno koristiti:
+Sve u `data/` pokriveno je CC0 licencom, dakle može se slobodno koristiti:
 
 <p xmlns:dct="http://purl.org/dc/terms/">
   <a rel="license"
@@ -36,3 +36,7 @@ Svi materijali pokriveni su CC0 licencom, dakle mogu se slobodno koristiti:
   has waived all copyright and related or neighboring rights to
   this work.
 </p>
+
+Svi ostali materijali pokriveni su Creative Commons Attribution 4.0 International licencom.
+
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
